@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties PUBLIC "-//JTRS//DTD SCA V2.2.2 PRF//EN" "properties.dtd">
+<properties>
+  <simple id="scheme_codec" mode="readwrite" type="short">
+    <value>16</value>
+    <enumerations>
+      <enumeration label="V27" value="0"/>
+      <enumeration label="V29" value="1"/>
+      <enumeration label="V39" value="2"/>
+      <enumeration label="V615" value="3"/>
+      <enumeration label="V27P23" value="4"/>
+      <enumeration label="V27P34" value="5"/>
+      <enumeration label="V27P45" value="6"/>
+      <enumeration label="V27P56" value="7"/>
+      <enumeration label="V27P67" value="8"/>
+      <enumeration label="V27P78" value="9"/>
+      <enumeration label="V29P23" value="10"/>
+      <enumeration label="V29P34" value="11"/>
+      <enumeration label="V29P45" value="12"/>
+      <enumeration label="V29P56" value="13"/>
+      <enumeration label="V29P67" value="14"/>
+      <enumeration label="V29P78" value="15"/>
+      <enumeration label="RSM8" value="16"/>
+    </enumerations>
+    <kind kindtype="configure"/>
+    <action type="external"/>
+  </simple>
+  <simple id="encode" mode="readwrite" type="boolean">
+    <value>true</value>
+    <kind kindtype="configure"/>
+    <action type="external"/>
+  </simple>
+</properties>
