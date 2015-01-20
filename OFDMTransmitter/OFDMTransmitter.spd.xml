@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE softpkg PUBLIC "-//JTRS//DTD SCA V2.2.2 SPD//EN" "softpkg.dtd">
+<softpkg id="DCE:8cf74fbd-3204-4736-a385-aa12030493fe" name="OFDMTransmitter" type="sca_compliant">
+  <title></title>
+  <author>
+    <name>null</name>
+  </author>
+  <propertyfile type="PRF">
+    <localfile name="OFDMTransmitter.prf.xml"/>
+  </propertyfile>
+  <descriptor>
+    <localfile name="OFDMTransmitter.scd.xml"/>
+  </descriptor>
+  <implementation id="cpp">
+    <description>The implementation contains descriptive information about the template for a software component.</description>
+    <code type="Executable">
+      <localfile name="cpp/OFDMTransmitter"/>
+      <entrypoint>cpp/OFDMTransmitter</entrypoint>
+    </code>
+    <compiler name="/usr/bin/gcc" version="4.1.2"/>
+    <programminglanguage name="C++"/>
+    <humanlanguage name="EN"/>
+    <os name="Linux"/>
+    <processor name="x86"/>
+    <processor name="x86_64"/>
+    <dependency type="allocation">
+      <softpkgref>
+        <localfile name="/deps/liquid_dsp_v1/liquid_dsp_v1.spd.xml"/>
+      </softpkgref>
+    </dependency>
+    <dependency type="allocation">
+      <softpkgref>
+        <localfile name="/deps/fec_v3/fec_v3.spd.xml"/>
+      </softpkgref>
+    </dependency>
+  </implementation>
+</softpkg>
