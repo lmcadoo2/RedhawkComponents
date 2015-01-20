@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties PUBLIC "-//JTRS//DTD SCA V2.2.2 PRF//EN" "properties.dtd">
+<properties>
+  <simple id="subcarriers" mode="readwrite" type="short">
+    <value>64</value>
+    <kind kindtype="configure"/>
+    <action type="external"/>
+  </simple>
+  <simple id="cyclic_prefix" mode="readwrite" type="short">
+    <value>16</value>
+    <units>bits</units>
+    <kind kindtype="configure"/>
+    <action type="external"/>
+  </simple>
+  <simplesequence id="pilot_frequencies" mode="readwrite" type="short">
+    <description>These are the frequencies which contain pilot tones. (In reality they are the number of the subcarrier frequency, from 0-{subcarriers-1}).</description>
+    <values>
+      <value>4</value>
+      <value>12</value>
+      <value>20</value>
+      <value>44</value>
+      <value>52</value>
+      <value>60</value>
+    </values>
+    <kind kindtype="configure"/>
+    <action type="external"/>
+  </simplesequence>
+  <simplesequence id="null_frequencies" mode="readwrite" type="short">
+    <description>These are the frequencies which contain nothing. (In reality they are the number of the subcarrier frequency, from 0-{subcarriers-1}).</description>
+    <values>
+      <value>0</value>
+      <value>26</value>
+      <value>27</value>
+      <value>28</value>
+      <value>29</value>
+      <value>30</value>
+      <value>31</value>
+      <value>32</value>
+      <value>33</value>
+      <value>34</value>
+      <value>35</value>
+      <value>36</value>
+      <value>37</value>
+      <value>38</value>
+    </values>
+    <kind kindtype="configure"/>
+    <action type="external"/>
+  </simplesequence>
+</properties>
