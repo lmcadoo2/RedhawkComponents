@@ -71,6 +71,15 @@ void OFDMTransmitter_base::loadProperties()
                 "external",
                 "configure");
 
+    addProperty(taper_length,
+                4,
+                "taper_length",
+                "",
+                "readwrite",
+                "",
+                "external",
+                "configure");
+
     addProperty(cyclic_prefix,
                 16,
                 "cyclic_prefix",
@@ -101,6 +110,15 @@ void OFDMTransmitter_base::loadProperties()
     addProperty(error_correction_scheme_codec_outer,
                 3,
                 "error_correction_scheme_codec_outer",
+                "",
+                "readwrite",
+                "",
+                "external",
+                "configure");
+
+    addProperty(modulation_scheme_codec,
+                28,
+                "modulation_scheme_codec",
                 "",
                 "readwrite",
                 "",

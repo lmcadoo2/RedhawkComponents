@@ -24,10 +24,12 @@ class OFDMTransmitter_base : public Resource_impl, protected ThreadedComponent
     protected:
         // Member variables exposed as properties
         short subcarriers;
+        short taper_length;
         short cyclic_prefix;
         short error_correction_scheme_codec_inner;
         short error_detection_scheme_codec;
         short error_correction_scheme_codec_outer;
+        short modulation_scheme_codec;
         std::vector<short> pilot_frequencies;
         std::vector<short> null_frequencies;
 

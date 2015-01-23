@@ -7,7 +7,7 @@
 //The soft package was handbuilt.
 //TODO: Automate the building of the softpackage
 
-#include <liquid/liquid.h>
+#include "liquid.h"
 //#include "complex.h"
 
 class ArbitraryResampler_i : public ArbitraryResampler_base

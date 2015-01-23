@@ -2,7 +2,7 @@
 #define OFDMTRANSMITTER_IMPL_H
 
 #include "OFDMTransmitter_base.h"
-#include <liquid/liquid.h>
+#include "liquid.h"
 #include "fec.h"
 
 class OFDMTransmitter_i : public OFDMTransmitter_base
@@ -15,6 +15,7 @@ class OFDMTransmitter_i : public OFDMTransmitter_base
     private:
         fec_scheme scheme_list[27];
         crc_scheme ed_scheme_list[6];
+        modulation_scheme mod_scheme_list[49];
         boost::mutex mutex_lock;
 };
 

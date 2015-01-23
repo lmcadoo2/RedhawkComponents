@@ -164,6 +164,7 @@ int OFDMReceiver_i::serviceFunction()
 	mutex_lock.lock();
 	unsigned int num_subcarriers = subcarriers;
 	unsigned int cyclic_prefix_len = cyclic_prefix;
+	unsigned int t_len = taper_length;
 	std::vector<short> pilot_freqs = pilot_frequencies;
 	std::vector<short> null_freqs = null_frequencies;
     mutex_lock.unlock();
@@ -197,7 +198,7 @@ int OFDMReceiver_i::serviceFunction()
 	bool getInput = true;
 
 	// Create the synchronizer
-	ofdmflexframesync sync = ofdmflexframesync_create(num_subcarriers, cyclic_prefix_len, p, myCallBackFunction, callback_ptr);
+	ofdmflexframesync sync = ofdmflexframesync_create(num_subcarriers, cyclic_prefix_len, t_len, p, myCallBackFunction, callback_ptr);
 
 	// Get input
 	bulkio::InFloatPort::dataTransfer * input = dataFloatIn->getPacket(bulkio::Const::BLOCKING);

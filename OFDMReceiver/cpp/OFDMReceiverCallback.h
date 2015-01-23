@@ -9,7 +9,7 @@
 #define OFDMRECEIVERCALLBACK_H_
 
 #include "OFDMReceiver_base.h"
-#include <liquid/liquid.h>
+#include "liquid.h"
 
 int myCallBackFunction(
         		unsigned char *  _header,

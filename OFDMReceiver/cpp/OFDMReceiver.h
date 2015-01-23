@@ -3,7 +3,7 @@
 
 #include "OFDMReceiver_base.h"
 #include "OFDMReceiverCallback.h"
-#include <liquid/liquid.h>
+#include "liquid.h"
 #include "fec.h"
 
 class OFDMReceiver_i : public OFDMReceiver_base

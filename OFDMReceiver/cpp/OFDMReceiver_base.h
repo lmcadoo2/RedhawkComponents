@@ -25,6 +25,7 @@ class OFDMReceiver_base : public Resource_impl, protected ThreadedComponent
         // Member variables exposed as properties
         short subcarriers;
         short cyclic_prefix;
+        short taper_length;
         std::vector<short> pilot_frequencies;
         std::vector<short> null_frequencies;
 

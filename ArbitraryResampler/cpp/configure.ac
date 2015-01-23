@@ -29,6 +29,14 @@ AC_SUBST(liquid_dsp_v1_LIBS)
 CXXFLAGS="$CXXFLAGS $liquid_dsp_v1_CFLAGS"
 LIBS="$LIBS $liquid_dsp_v1_LIBS"
 
+#The fec dependency
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${SDR_ROOT}/dom/deps/fec_v3/cpp/lib/pkgconfig"
+PKG_CHECK_MODULES(fec_v3, fec_v3 >= 3.0.1, , AC_MSG_ERROR("Unable to find x86_64 fec Shared Package"))
+AC_SUBST(fec_v3_CFLAGS)
+AC_SUBST(fec_v3_LIBS)
+CXXFLAGS="$CXXFLAGS $fec_v3_CFLAGS"
+LIBS="$LIBS $fec_v3_LIBS"
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 

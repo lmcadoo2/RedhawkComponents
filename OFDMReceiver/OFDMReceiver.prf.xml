@@ -12,6 +12,11 @@
     <kind kindtype="configure"/>
     <action type="external"/>
   </simple>
+  <simple id="taper_length" mode="readwrite" type="short">
+    <value>4</value>
+    <kind kindtype="configure"/>
+    <action type="external"/>
+  </simple>
   <simplesequence id="pilot_frequencies" mode="readwrite" type="short">
     <description>These are the frequencies which contain pilot tones. (In reality they are the number of the subcarrier frequency, from 0-{subcarriers-1}).</description>
     <values>

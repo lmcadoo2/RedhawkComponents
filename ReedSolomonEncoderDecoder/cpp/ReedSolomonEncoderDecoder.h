@@ -4,7 +4,7 @@
 #include "ReedSolomonEncoderDecoder_base.h"
 
 //Dependencies
-#include <liquid/liquid.h>
+#include "liquid.h"
 #include "fec.h"
 
 class ReedSolomonEncoderDecoder_i : public ReedSolomonEncoderDecoder_base

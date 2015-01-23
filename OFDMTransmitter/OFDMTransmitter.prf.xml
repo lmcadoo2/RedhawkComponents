@@ -6,6 +6,11 @@
     <kind kindtype="configure"/>
     <action type="external"/>
   </simple>
+  <simple id="taper_length" mode="readwrite" type="short">
+    <value>4</value>
+    <kind kindtype="configure"/>
+    <action type="external"/>
+  </simple>
   <simple id="cyclic_prefix" mode="readwrite" type="short">
     <value>16</value>
     <units>bits</units>
@@ -132,6 +137,58 @@
   </simple>
   <simple id="modulation_scheme_codec" mode="readwrite" type="short">
     <description>The scheme for modulation</description>
+    <value>28</value>
+    <enumerations>
+      <enumeration label="PSK2" value="0"/>
+      <enumeration label="PSK4" value="1"/>
+      <enumeration label="PSK8" value="2"/>
+      <enumeration label="PSK16" value="3"/>
+      <enumeration label="PSK32" value="4"/>
+      <enumeration label="PSK64" value="5"/>
+      <enumeration label="PSK128" value="6"/>
+      <enumeration label="PSK256" value="7"/>
+      <enumeration label="DPSK2" value="8"/>
+      <enumeration label="DPSK4" value="9"/>
+      <enumeration label="DPSK8" value="10"/>
+      <enumeration label="DPSK16" value="11"/>
+      <enumeration label="DPSK32" value="12"/>
+      <enumeration label="DPSK64" value="13"/>
+      <enumeration label="DPSK128" value="14"/>
+      <enumeration label="DPSK256" value="15"/>
+      <enumeration label="ASK2" value="16"/>
+      <enumeration label="ASK4" value="17"/>
+      <enumeration label="ASK8" value="18"/>
+      <enumeration label="ASK16" value="19"/>
+      <enumeration label="ASK32" value="20"/>
+      <enumeration label="ASK64" value="21"/>
+      <enumeration label="ASK128" value="22"/>
+      <enumeration label="ASK256" value="23"/>
+      <enumeration label="QAM4" value="24"/>
+      <enumeration label="QAM8" value="25"/>
+      <enumeration label="QAM16" value="26"/>
+      <enumeration label="QAM32" value="27"/>
+      <enumeration label="QAM64" value="28"/>
+      <enumeration label="QAM128" value="29"/>
+      <enumeration label="QAM256" value="30"/>
+      <enumeration label="APSK4" value="31"/>
+      <enumeration label="APSK8" value="32"/>
+      <enumeration label="APSK16" value="33"/>
+      <enumeration label="APSK32" value="34"/>
+      <enumeration label="APSK64" value="35"/>
+      <enumeration label="APSK128" value="36"/>
+      <enumeration label="APSK256" value="37"/>
+      <enumeration label="BPSK" value="38"/>
+      <enumeration label="QPSK" value="39"/>
+      <enumeration label="OOK" value="40"/>
+      <enumeration label="SQAM32" value="41"/>
+      <enumeration label="SQAM128" value="42"/>
+      <enumeration label="V29" value="43"/>
+      <enumeration label="ARB16OPT" value="44"/>
+      <enumeration label="ARB32OPT" value="45"/>
+      <enumeration label="ARB64OPT" value="46"/>
+      <enumeration label="ARB128OPT" value="47"/>
+      <enumeration label="ARB256OPT" value="48"/>
+    </enumerations>
     <kind kindtype="configure"/>
     <action type="external"/>
   </simple>

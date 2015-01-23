@@ -22,6 +22,16 @@ OFDMTransmitter_i::OFDMTransmitter_i(const char *uuid, const char *label) :
 			LIQUID_FEC_CONV_V29P34, LIQUID_FEC_CONV_V29P45, LIQUID_FEC_CONV_V29P56, LIQUID_FEC_CONV_V29P67,
 			LIQUID_FEC_CONV_V29P78, LIQUID_FEC_RS_M8};
 	ed_scheme_list = {LIQUID_CRC_NONE, LIQUID_CRC_CHECKSUM, LIQUID_CRC_8, LIQUID_CRC_16, LIQUID_CRC_24, LIQUID_CRC_32};
+	mod_scheme_list = {LIQUID_MODEM_PSK2, LIQUID_MODEM_PSK4, LIQUID_MODEM_PSK8, LIQUID_MODEM_PSK16, LIQUID_MODEM_PSK32,
+			LIQUID_MODEM_PSK64, LIQUID_MODEM_PSK128, LIQUID_MODEM_PSK256, LIQUID_MODEM_DPSK2, LIQUID_MODEM_DPSK4,
+			LIQUID_MODEM_DPSK8, LIQUID_MODEM_DPSK16, LIQUID_MODEM_DPSK32, LIQUID_MODEM_DPSK64, LIQUID_MODEM_DPSK128,
+			LIQUID_MODEM_DPSK256, LIQUID_MODEM_ASK2, LIQUID_MODEM_ASK4, LIQUID_MODEM_ASK8, LIQUID_MODEM_ASK16,
+			LIQUID_MODEM_ASK32, LIQUID_MODEM_ASK64, LIQUID_MODEM_ASK128, LIQUID_MODEM_ASK256, LIQUID_MODEM_QAM4,
+			LIQUID_MODEM_QAM8, LIQUID_MODEM_QAM16, LIQUID_MODEM_QAM32, LIQUID_MODEM_QAM64, LIQUID_MODEM_QAM128,
+			LIQUID_MODEM_QAM256, LIQUID_MODEM_APSK4, LIQUID_MODEM_APSK8, LIQUID_MODEM_APSK16, LIQUID_MODEM_APSK32,
+			LIQUID_MODEM_APSK64, LIQUID_MODEM_APSK128, LIQUID_MODEM_APSK256, LIQUID_MODEM_BPSK, LIQUID_MODEM_QPSK,
+			LIQUID_MODEM_OOK, LIQUID_MODEM_SQAM32, LIQUID_MODEM_SQAM128, LIQUID_MODEM_V29, LIQUID_MODEM_ARB16OPT,
+			LIQUID_MODEM_ARB32OPT, LIQUID_MODEM_ARB64OPT, LIQUID_MODEM_ARB128OPT, LIQUID_MODEM_ARB256OPT};
 }
 
 OFDMTransmitter_i::~OFDMTransmitter_i()
@@ -170,9 +180,11 @@ int OFDMTransmitter_i::serviceFunction()
 	mutex_lock.lock();
 	unsigned int num_subcarriers = subcarriers;
 	unsigned int cyclic_prefix_len = cyclic_prefix;
+	unsigned int tap_length = taper_length;
 	short ec_outer = error_correction_scheme_codec_outer;
 	short ec_inner = error_correction_scheme_codec_inner;
 	short ed_codec = error_detection_scheme_codec;
+	short mod_codec = modulation_scheme_codec;
 	std::vector<short> pilot_freqs = pilot_frequencies;
 	std::vector<short> null_freqs = null_frequencies;
 	mutex_lock.unlock();
@@ -202,6 +214,7 @@ int OFDMTransmitter_i::serviceFunction()
 	fgprops.check = ed_scheme_list[ed_codec];
 	fgprops.fec0 = scheme_list[ec_inner];
 	fgprops.fec1 = scheme_list[ec_outer];
+	fgprops.mod_scheme =  mod_scheme_list[mod_codec];
 
 
 	// Get input data and put in usable (to liquid) form
@@ -235,7 +248,7 @@ int OFDMTransmitter_i::serviceFunction()
 	dataFloatOut->pushSRI(input->SRI);
 
 	// Create actual frame generator
-	ofdmflexframegen generator = ofdmflexframegen_create(num_subcarriers, cyclic_prefix_len, p, &fgprops);
+	ofdmflexframegen generator = ofdmflexframegen_create(num_subcarriers, cyclic_prefix_len, tap_length, p, &fgprops);
 	ofdmflexframegen_assemble(generator, header, payload, payload_len);
 
 	// Loop to write symbols to a buffer, push them out, and to signify the EOS
@@ -244,7 +257,8 @@ int OFDMTransmitter_i::serviceFunction()
 	bool EOS = false;
 	while(not last)
 	{
-		last = ofdmflexframegen_writesymbol(generator, symbol, &num_written);
+		num_written = symbol_length;
+		last = ofdmflexframegen_writesymbol(generator, symbol);
 
 		// Only num_written complex samples written, creating 2*num_written floats
 		output.resize(2*num_written);

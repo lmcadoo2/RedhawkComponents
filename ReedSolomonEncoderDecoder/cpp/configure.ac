@@ -28,6 +28,7 @@ AC_SUBST(liquid_dsp_v1_CFLAGS)
 AC_SUBST(liquid_dsp_v1_LIBS)
 CXXFLAGS="$CXXFLAGS $liquid_dsp_v1_CFLAGS"
 LIBS="$LIBS $liquid_dsp_v1_LIBS"
+#LDFLAGS="$LDFLAGS -L${SDR_ROOT}/dom/deps/liquid_dsp_v1/cpp/lib"
 
 #The fec dependency
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${SDR_ROOT}/dom/deps/fec_v3/cpp/lib/pkgconfig"

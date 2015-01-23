@@ -10,3 +10,4 @@ redhawk_SOURCES_auto += OFDMReceiverCallback.h
 redhawk_SOURCES_auto += OFDMReceiver_base.cpp
 redhawk_SOURCES_auto += OFDMReceiver_base.h
 redhawk_SOURCES_auto += main.cpp
+redhawk_INCLUDES_auto = -I/var/redhawk/sdr/dom/deps/liquid_dsp_v1/cpp/include/liquid

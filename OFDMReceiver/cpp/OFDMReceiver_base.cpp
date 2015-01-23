@@ -80,6 +80,15 @@ void OFDMReceiver_base::loadProperties()
                 "external",
                 "configure");
 
+    addProperty(taper_length,
+                4,
+                "taper_length",
+                "",
+                "readwrite",
+                "",
+                "external",
+                "configure");
+
     // Set the sequence with its initial values
     pilot_frequencies.push_back(4);
     pilot_frequencies.push_back(12);

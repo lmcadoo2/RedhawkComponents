@@ -3,9 +3,8 @@
 # and choosing Resource Configurations -> Exclude from build. Re-include files
 # by opening the Properties dialog of your project and choosing C/C++ Build ->
 # Tool Chain Editor, and un-checking "Exclude resource from build "
-redhawk_SOURCES_auto = OFDMTransmitter.cpp
-redhawk_SOURCES_auto += OFDMTransmitter.h
-redhawk_SOURCES_auto += OFDMTransmitter_base.cpp
-redhawk_SOURCES_auto += OFDMTransmitter_base.h
-redhawk_SOURCES_auto += main.cpp
-redhawk_INCLUDES_auto = -I/var/redhawk/sdr/dom/deps/liquid_dsp_v1/cpp/include/liquid
+redhawk_SOURCES_auto = cpp/OFDMTransmitter.cpp
+redhawk_SOURCES_auto += cpp/OFDMTransmitter.h
+redhawk_SOURCES_auto += cpp/OFDMTransmitter_base.cpp
+redhawk_SOURCES_auto += cpp/OFDMTransmitter_base.h
+redhawk_SOURCES_auto += cpp/main.cpp
