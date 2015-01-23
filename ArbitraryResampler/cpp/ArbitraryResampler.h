@@ -4,11 +4,8 @@
 #include "ArbitraryResampler_base.h"
 
 //PLEASE NOTE: This Component requires the use of the liquid library
-//The soft package was handbuilt.
-//TODO: Automate the building of the softpackage
 
 #include "liquid.h"
-//#include "complex.h"
 
 class ArbitraryResampler_i : public ArbitraryResampler_base
 {
@@ -19,7 +16,6 @@ class ArbitraryResampler_i : public ArbitraryResampler_base
         int serviceFunction();
 
     private:
-		//union RESAMP { resamp_
 		std::map<std::string, resamp_rrrf> resamplers_real;
 		std::map<std::string, resamp_crcf> resamplers_complex;
 
